@@ -1,0 +1,5 @@
+# Don't store token files
+token.json
+
+# Don't store any output
+*.out
