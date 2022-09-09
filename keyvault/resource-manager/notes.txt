@@ -1,0 +1,64 @@
+
+First attempt at createVault:
+
+{
+  "error": {
+    "code": "BadRequest",
+    "message": "The parameter accessPolicies is not specified."
+  }
+}
+
+accessPolicies is a property not a parameter, and it is not marked required.
+
+But an empty accessPolicies works fine!
+
+===========
+
+listVaults is interesting!!
+
+Not a GET on the vaults collection.
+
+AND does not use the same api-version !!!
+
+>./listVaults.sh   
+HTTP/2 400 
+{
+  "error": {
+    "code": "InvalidApiVersionParameter",
+    "message": "The api-version '2022-07-01' is invalid. The supported versions are '2022-09-01,2022-06-01,2022-05-01,2022-03-01-preview,2022-01-01,2021-04-01,2021-01-01,2020-10-01,2020-09-01,2020-08-01,2020-07-01,2020-06-01,2020-05-01,2020-01-01,2019-11-01,2019-10-01,2019-09-01,2019-08-01,2019-07-01,2019-06-01,2019-05-10,2019-05-01,2019-03-01,2018-11-01,2018-09-01,2018-08-01,2018-07-01,2018-06-01,2018-05-01,2018-02-01,2018-01-01,2017-12-01,2017-08-01,2017-06-01,2017-05-10,2017-05-01,2017-03-01,2016-09-01,2016-07-01,2016-06-01,2016-02-01,2015-11-01,2015-01-01,2014-04-01-preview,2014-04-01,2014-01-01,2013-03-01,2014-02-26,2014-04'."
+  }
+}
+
+The version documented in the REST API docs also does not work:
+
+"message": "The api-version '2021-10-01' is invalid.
+
+============
+
+No delete secret operation ???  It's true!
+
+{
+  "error": {
+    "code": "DisallowedResourceOperation",
+    "message": "The operation 'delete' on resource type 'vaults/secrets' is disallowed."
+  }
+}
+
+============
+
+createSecret.sh
+
+HTTP/2 400 
+{
+  "error": {
+    "code": "ParameterNotSpecified",
+    "message": "The parameter properties is not specified."
+  }
+}
+
+{
+  "error": {
+    "code": "ParameterNotSpecified",
+    "message": "The parameter value is not specified."
+  }
+}
