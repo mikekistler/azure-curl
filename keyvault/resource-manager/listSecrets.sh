@@ -1,6 +1,6 @@
+#!/bin/bash
 
-./getToken.sh
-token=$(jq -r '.accessToken' token.json)
+source ./init.sh
 
 vaultBaseUrl=https://management.azure.com$(tail -1 createVault.out | jq -r '.id')
 

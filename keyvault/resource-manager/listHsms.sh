@@ -10,8 +10,8 @@ apiVersion=2022-07-01
 # -D sends the headers to stdout
 curl -s -D - -X GET \
    -H "Authorization: Bearer ${token}" \
-   ${baseUrl}/deletedManagedHSMs?api-version=${apiVersion} \
-   > listDeletedHsms.out
+   ${baseUrl}/managedHSMs?api-version=${apiVersion} \
+   > listHsms.out
 
-head -n 1 listDeletedHsms.out
-tail -n 1 listDeletedHsms.out | jq '.'
+head -n 1 listHsms.out
+tail -n 1 listHsms.out | jq '.'
