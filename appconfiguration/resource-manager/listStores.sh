@@ -1,8 +1,6 @@
 
-./getToken.sh
-token=$(jq -r '.accessToken' token.json)
+source ./init.sh
 
-subscriptionId=$(az account show --query 'id' -o tsv)
 baseUrl=https://management.azure.com/subscriptions/${subscriptionId}/providers/Microsoft.AppConfiguration
 
 apiVersion=2022-05-01

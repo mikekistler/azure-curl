@@ -1,6 +1,5 @@
 
-./getToken.sh
-token=$(jq -r '.accessToken' token.json)
+source ./init.sh
 
 # sed removes the CR at the end of the value
 azure_asyncoperation="$(grep -i 'azure-asyncoperation' createStore.out | awk '{print $2}' | sed 's/\r$//')"
