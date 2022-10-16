@@ -2,6 +2,12 @@
 
 source ./init.sh
 
+# Check if createVault.out exists, If not, then issue a message and exit
+if [ ! -f createVault.out ]; then
+    echo "createVault.out does not exist. Please run createVault.sh first."
+    exit 1
+fi
+
 vaultBaseUrl=https://management.azure.com$(tail -1 createVault.out | jq -r '.id')
 
 apiVersion=2022-07-01
