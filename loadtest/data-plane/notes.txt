@@ -1,0 +1,16 @@
+
+No CLI ?
+
+It seems that there is no way to create a "quick test" in the portal without immediately running it.
+
+The test immediately started running after I created it in the portal. Not expected!!
+
+
+Concerns:
+
+- Many properties returned with the value "null" -- this is strongly discouraged.
+A response property should only have the value "null" if "null" has some semantic meaning that is different from the property having no value.
+
+Response of listTestFiles:
+
+fileType: 0 - sending a bare enum (numeric value)
