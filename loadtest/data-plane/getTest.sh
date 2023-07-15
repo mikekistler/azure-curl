@@ -2,7 +2,7 @@
 
 source ./init.sh
 
-apiVersion=2022-06-01-preview
+apiVersion=2022-11-01
 
 if [ ! -f listTests.out ]; then
     echo "Run listTests.sh first."
@@ -15,7 +15,7 @@ testId=$(tail -1 listTests.out | jq -r '.value[0].testId')
 # -D sends the headers to stdout
 curl -s -D - -X GET \
     -H "Authorization: Bearer ${token}" \
-    "${endpoint}/loadtests/${testId}?api-version=${apiVersion}" \
+    "${endpoint}/tests/${testId}?api-version=${apiVersion}" \
     > getTest.out
 
 head -n 1 getTest.out

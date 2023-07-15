@@ -10,7 +10,7 @@ if [ -z "$testId" -a -f listTests.out ]; then
 fi
 
 if [ -z "$testId" ]; then
-    echo "No testId found.  Run listTestFiles.sh first."
+    echo "No testId found.  Run listTests.sh first."
     exit 1
 fi
 

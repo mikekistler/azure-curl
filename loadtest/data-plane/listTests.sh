@@ -2,13 +2,13 @@
 
 source ./init.sh
 
-apiVersion=2022-06-01-preview
+apiVersion=2022-11-01
 
 # -s hides the progress bar
 # -D sends the headers to stdout
 curl -s -D - -X GET \
    -H "Authorization: Bearer ${token}" \
-   ${endpoint}/loadtests/sortAndFilter?api-version=${apiVersion} \
+   ${endpoint}/tests?api-version=${apiVersion} \
    > listTests.out
 
 head -n 1 listTests.out
